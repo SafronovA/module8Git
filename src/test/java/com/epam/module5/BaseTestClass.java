@@ -2,14 +2,15 @@ package com.epam.module5;
 
 import com.epam.module5.pages.MainPage;
 import com.epam.module5.pages.SignInPage;
-import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
-import javax.swing.*;
 import java.util.concurrent.TimeUnit;
 
 public class BaseTestClass {

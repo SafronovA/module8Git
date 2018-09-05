@@ -7,8 +7,6 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.util.concurrent.TimeUnit;
-
 public class CreateNewRepositoryPage {
     private WebDriver driver;
 
@@ -23,10 +21,10 @@ public class CreateNewRepositoryPage {
     private WebElement createRepositoryButton;
 
 
-    public RepositoryPage createRepository(String repoName) throws InterruptedException {
-        new WebDriverWait(driver,2).until(ExpectedConditions.visibilityOf(repositoryNameInput));
+    public RepositoryPage createRepository(String repoName) {
+        new WebDriverWait(driver,10).until(ExpectedConditions.elementToBeClickable(repositoryNameInput));
         repositoryNameInput.sendKeys(repoName);
-        new WebDriverWait(driver,2).until(ExpectedConditions.elementToBeClickable(createRepositoryButton));
+        new WebDriverWait(driver,10).until(ExpectedConditions.elementToBeClickable(createRepositoryButton));
         createRepositoryButton.click();
         return new RepositoryPage(driver);
     }

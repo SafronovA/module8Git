@@ -44,7 +44,7 @@ public class RepositoryPage {
         return title.getAttribute("innerHTML");
     }
 
-    public void includeReadmeFile() throws InterruptedException {
+    public void includeReadmeFile() {
         clickReadmeLink();
         commitNewFileButton.click();
     }

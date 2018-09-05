@@ -10,12 +10,12 @@ public class AddReadmeFile extends BaseTestClass {
     RepositoryPage repositoryPage;
 
     @Test(priority = 4)
-    public void addReadmeToRepositoryTest() throws InterruptedException {
+    public void addReadmeToRepositoryTest() {
         addReadmeToRepository();
         Assert.assertTrue(repositoryPage.checkFileAvailability(README_FILE_NAME));
     }
 
-    private void addReadmeToRepository() throws InterruptedException {
+    private void addReadmeToRepository() {
         signIn(LOGIN, PASSWORD);
         mainProfilePage = mainPage.enterYourProfile();
         mainProfilePage.clickRepositoryLink();

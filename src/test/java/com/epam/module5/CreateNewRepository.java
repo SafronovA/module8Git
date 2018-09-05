@@ -12,14 +12,14 @@ public class CreateNewRepository extends BaseTestClass {
     RepositoryPage repositoryPage;
 
     @Test(priority = 3)
-    public void createRepositoryTest() throws InterruptedException {
+    public void createRepositoryTest() {
         repositoryPage = createRepository();
         String actualTitle = repositoryPage.getTitleText();
         Assert.assertEquals(actualTitle, REPOSITORY_NAME);
 
     }
 
-    private RepositoryPage createRepository() throws InterruptedException {
+    private RepositoryPage createRepository() {
         signIn(LOGIN, PASSWORD);
         mainProfilePage = mainPage.enterYourProfile();
         mainProfilePage.clickRepositoryLink();
