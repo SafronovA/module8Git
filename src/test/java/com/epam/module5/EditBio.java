@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 public class EditBio extends BaseTestClass {
     MainProfilePage mainProfilePage;
 
-    @Test
+    @Test (priority = 2)
     public void editBioTest(){
         editBio();
         String actualBio = mainProfilePage.getBioValue();
@@ -15,6 +15,7 @@ public class EditBio extends BaseTestClass {
     }
 
     private void editBio() {
+        signIn(LOGIN, PASSWORD);
         mainProfilePage = mainPage.enterYourProfile();
         mainProfilePage.addOrEditBio(BIO);
     }

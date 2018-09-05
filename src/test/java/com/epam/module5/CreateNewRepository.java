@@ -11,7 +11,7 @@ public class CreateNewRepository extends BaseTestClass {
     CreateNewRepositoryPage createNewRepositoryPage;
     RepositoryPage repositoryPage;
 
-    @Test
+    @Test(priority = 3)
     public void createRepositoryTest() throws InterruptedException {
         repositoryPage = createRepository();
         String actualTitle = repositoryPage.getTitleText();
@@ -20,6 +20,7 @@ public class CreateNewRepository extends BaseTestClass {
     }
 
     private RepositoryPage createRepository() throws InterruptedException {
+        signIn(LOGIN, PASSWORD);
         mainProfilePage = mainPage.enterYourProfile();
         mainProfilePage.clickRepositoryLink();
         createNewRepositoryPage = mainProfilePage.clickNewLink();

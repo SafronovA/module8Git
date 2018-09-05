@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Module5" verbose="1" parallel="classes" thread-count="4" >
+
+    <test name="packageRun" enabled="true">
+        <packages>
+            <package name="com.epam.module5"/>
+        </packages>
+    </test>
+
+</suite>

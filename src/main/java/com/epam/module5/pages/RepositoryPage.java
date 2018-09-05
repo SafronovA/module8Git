@@ -9,7 +9,7 @@ import java.util.Iterator;
 import java.util.List;
 
 public class RepositoryPage {
-    WebDriver driver;
+    private  WebDriver driver;
 
     public RepositoryPage(WebDriver driver) {
         PageFactory.initElements(driver, this);

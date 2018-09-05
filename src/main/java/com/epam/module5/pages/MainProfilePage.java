@@ -9,7 +9,7 @@ import java.util.Iterator;
 import java.util.List;
 
 public class MainProfilePage {
-    WebDriver driver;
+    private WebDriver driver;
 
     public MainProfilePage(WebDriver driver){
         PageFactory.initElements(driver,this);

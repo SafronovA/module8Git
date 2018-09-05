@@ -9,7 +9,7 @@ public class DeleteExistingRepository extends BaseTestClass {
     MainProfilePage mainProfilePage;
     RepositoryPage repositoryPage;
 
-    @Test
+    @Test(priority = 6)
     public void deleteRepositoryTest() {
         deleteRepository();
         String actualTitleAfterDeleting = mainPage.getTitleAfterDeleting();
@@ -17,6 +17,7 @@ public class DeleteExistingRepository extends BaseTestClass {
     }
 
     private void deleteRepository() {
+        signIn(LOGIN, PASSWORD);
         mainProfilePage = mainPage.enterYourProfile();
         mainProfilePage.clickRepositoryLink();
         repositoryPage = mainProfilePage.chooseRepository(REPOSITORY_NAME);

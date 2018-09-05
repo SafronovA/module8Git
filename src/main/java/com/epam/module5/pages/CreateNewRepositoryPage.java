@@ -4,11 +4,13 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.concurrent.TimeUnit;
 
 public class CreateNewRepositoryPage {
-    WebDriver driver;
+    private WebDriver driver;
 
     public CreateNewRepositoryPage(WebDriver driver){
         PageFactory.initElements(driver,this);
@@ -22,8 +24,9 @@ public class CreateNewRepositoryPage {
 
 
     public RepositoryPage createRepository(String repoName) throws InterruptedException {
+        new WebDriverWait(driver,2).until(ExpectedConditions.visibilityOf(repositoryNameInput));
         repositoryNameInput.sendKeys(repoName);
-        TimeUnit.SECONDS.sleep(2);
+        new WebDriverWait(driver,2).until(ExpectedConditions.elementToBeClickable(createRepositoryButton));
         createRepositoryButton.click();
         return new RepositoryPage(driver);
     }
