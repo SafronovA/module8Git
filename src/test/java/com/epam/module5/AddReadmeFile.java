@@ -16,7 +16,7 @@ public class AddReadmeFile extends BaseTestClass {
     }
 
     private void addReadmeToRepository() {
-        signIn(LOGIN, PASSWORD);
+        signIn();
         mainProfilePage = mainPage.enterYourProfile();
         mainProfilePage.clickRepositoryLink();
         repositoryPage = mainProfilePage.chooseRepository(REPOSITORY_NAME);

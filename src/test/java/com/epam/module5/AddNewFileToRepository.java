@@ -16,7 +16,7 @@ public class AddNewFileToRepository extends BaseTestClass {
     }
 
     private void addNewFileToRepository() {
-        signIn(LOGIN, PASSWORD);
+        signIn();
         mainProfilePage = mainPage.enterYourProfile();
         mainProfilePage.clickRepositoryLink();
         repositoryPage = mainProfilePage.chooseRepository(REPOSITORY_NAME);

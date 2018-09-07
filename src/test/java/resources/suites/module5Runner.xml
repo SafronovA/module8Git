@@ -2,10 +2,22 @@
 
 <suite name="Module5" verbose="1" parallel="classes" thread-count="4" >
 
-    <test name="packageRun" enabled="true">
+    <test name="packageRun" enabled="false">
         <packages>
             <package name="com.epam.module5"/>
         </packages>
+    </test>
+
+    <test name="classes" enabled="true">
+        <classes>
+            <class name="com.epam.module5.BaseTestClass"/>
+            <class name="com.epam.module5.FindUser"/>
+            <class name="com.epam.module5.EditBio"/>
+            <class name="com.epam.module5.CreateNewRepository"/>
+            <class name="com.epam.module5.AddReadmeFile"/>
+            <class name="com.epam.module5.AddNewFileToRepository"/>
+            <class name="com.epam.module5.DeleteExistingRepository"/>
+        </classes>
     </test>
 
 </suite>

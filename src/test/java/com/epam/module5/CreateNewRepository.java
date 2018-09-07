@@ -20,7 +20,7 @@ public class CreateNewRepository extends BaseTestClass {
     }
 
     private RepositoryPage createRepository() {
-        signIn(LOGIN, PASSWORD);
+        signIn();
         mainProfilePage = mainPage.enterYourProfile();
         mainProfilePage.clickRepositoryLink();
         createNewRepositoryPage = mainProfilePage.clickNewLink();
