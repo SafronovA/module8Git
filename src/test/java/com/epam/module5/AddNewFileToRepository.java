@@ -17,10 +17,13 @@ public class AddNewFileToRepository extends BaseTestClass {
 
     private void addNewFileToRepository() {
         signIn();
-        mainProfilePage = mainPage.enterYourProfile();
+        mainProfilePage = mainPage.openYourProfile();
         mainProfilePage.clickRepositoryLink();
         repositoryPage = mainProfilePage.chooseRepository(REPOSITORY_NAME);
         repositoryPage.createNewFile(TEST_FILE_NAME);
+
+//        signIn();
+//        mainPage.openYourProfile().clickRepositoryLink().chooseRepository(REPOSITORY_NAME).createNewFile(TEST_FILE_NAME);
     }
 
 

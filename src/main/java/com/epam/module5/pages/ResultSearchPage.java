@@ -21,8 +21,9 @@ public class ResultSearchPage {
     @FindBy(xpath = "//*[@id=\"user_search_results\"]/div/div/div[1]/div/a/em")
     private List<WebElement> usersList;
 
-    public void clickUsersLink(){
+    public ResultSearchPage clickUsersLink(){
         usersLink.click();
+        return this;
     }
 
     public boolean checkAvailability(String checkingOne){

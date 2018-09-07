@@ -21,7 +21,7 @@ public class CreateNewRepository extends BaseTestClass {
 
     private RepositoryPage createRepository() {
         signIn();
-        mainProfilePage = mainPage.enterYourProfile();
+        mainProfilePage = mainPage.openYourProfile();
         mainProfilePage.clickRepositoryLink();
         createNewRepositoryPage = mainProfilePage.clickNewLink();
         repositoryPage = createNewRepositoryPage.createRepository(REPOSITORY_NAME);

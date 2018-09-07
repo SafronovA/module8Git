@@ -44,9 +44,10 @@ public class RepositoryPage {
         return title.getAttribute("innerHTML");
     }
 
-    public void includeReadmeFile() {
+    public RepositoryPage includeReadmeFile() {
         clickReadmeLink();
         commitNewFileButton.click();
+        return this;
     }
 
     public RepositoryPage createNewFile(String fileName){
@@ -76,7 +77,7 @@ public class RepositoryPage {
         return new MainPage(driver);
     }
 
-    private void clickReadmeLink() {
+    private RepositoryPage clickReadmeLink() {
         Iterator<WebElement> iterator = weRecommendEveryRepositoryIncludeLine.iterator();
         while (iterator.hasNext()) {
             WebElement currentElement = iterator.next();
@@ -85,5 +86,6 @@ public class RepositoryPage {
                 break;
             }
         }
+        return this;
     }
 }

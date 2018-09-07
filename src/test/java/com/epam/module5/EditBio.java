@@ -16,7 +16,7 @@ public class EditBio extends BaseTestClass {
 
     private void editBio() {
         signIn();
-        mainProfilePage = mainPage.enterYourProfile();
+        mainProfilePage = mainPage.openYourProfile();
         mainProfilePage.addOrEditBio(BIO);
     }
 

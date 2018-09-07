@@ -18,7 +18,7 @@ public class DeleteExistingRepository extends BaseTestClass {
 
     private void deleteRepository() {
         signIn();
-        mainProfilePage = mainPage.enterYourProfile();
+        mainProfilePage = mainPage.openYourProfile();
         mainProfilePage.clickRepositoryLink();
         repositoryPage = mainProfilePage.chooseRepository(REPOSITORY_NAME);
         mainPage = repositoryPage.deleteRepository(REPOSITORY_NAME);

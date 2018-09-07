@@ -38,7 +38,7 @@ public class MainPage {
         return new ResultSearchPage(driver);
     }
 
-    public MainProfilePage enterYourProfile(){
+    public MainProfilePage openYourProfile(){
         avatar.click();
         yourProfileLink.click();
         return new MainProfilePage(driver);

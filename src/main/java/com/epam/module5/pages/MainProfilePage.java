@@ -31,16 +31,18 @@ public class MainProfilePage {
     @FindBy(xpath = "//*[@id=\"user-repositories-list\"]/ul/li/div/h3/a")
     private List<WebElement> repositoriesList;
 
-    public void addOrEditBio(String text){
+    public MainProfilePage addOrEditBio(String text){
         addOrEditBioButton.click();
         addOrEditBioInput.click();
         addOrEditBioInput.clear();
         addOrEditBioInput.sendKeys(text);
         addOrEditBioSaveButton.click();
+        return this;
     }
 
-    public void clickRepositoryLink(){
+    public MainProfilePage clickRepositoryLink(){
         repositoryLink.click();
+        return this;
     }
 
     public CreateNewRepositoryPage clickNewLink(){
