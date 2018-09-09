@@ -23,8 +23,10 @@ public class SignInPage {
     private WebElement submitButton;
 
     public MainPage authorized(String login, String password) {
+        System.out.println("вызов метода авторизации");
         driver.manage().timeouts().implicitlyWait(5,TimeUnit.SECONDS);
         loginInput.click();
+        System.out.println("loginInput.click();");
         loginInput.sendKeys(login);
         passwordInput.click();
         passwordInput.sendKeys(password);
