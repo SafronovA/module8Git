@@ -10,9 +10,9 @@ import org.openqa.selenium.support.PageFactory;
 import java.util.List;
 
 public class MainPage {
-    User user;
+
     private WebDriver driver;
-    SignInPage signInPage;
+    private User user = new User();
 
     public MainPage(WebDriver driver) {
         PageFactory.initElements(driver,this);
@@ -23,28 +23,20 @@ public class MainPage {
     private WebElement signInLink;
     @FindBy(xpath = "//input[@type=\"text\" and @name=\"q\"]")
     private WebElement searchInput;
-    @FindBy(xpath = "//*[@id=\"user-links\"]/li[3]/details/summary/img")
+    @FindBy(xpath = "//*[@id=\"user-links\"]/li[3]//img")
     private WebElement avatar;
     @FindBy(linkText = "Your profile")
     private WebElement yourProfileLink;
     @FindBy(xpath = "//*[@id=\"js-flash-container\"]/div/div")
     private WebElement titleAfterDeleting;
-    @FindBy(xpath = "//*[@id=\"user-links\"]/li[3]/details/summary/img")
+    @FindBy(xpath = "//*[@id=\"user-links\"]//img")
     private List<WebElement> avatarForCheckingUserAutorization;
 
-//public void signIn(){
-//    if (!userIsAutorized()) {
-//        signInPage = clickSignIn();
-//        System.out.println("clickSignIn");
-//        signInPage.authorized(user.getLogin(), user.getPassword());
-//        System.out.println("authorized");
-//    }
-//      return this;
-//}
-
-    public SignInPage clickSignIn(){
-        signInLink.click();
-        return new SignInPage(driver);
+    public MainPage signIn() {
+        if (!userIsAutorized()) {
+            clickSignIn()
+                    .authorized(user.getLogin(), user.getPassword());
+        } return this;
     }
 
     public ResultSearchPage fillSearchInput(String str){
@@ -58,6 +50,11 @@ public class MainPage {
         avatar.click();
         yourProfileLink.click();
         return new MainProfilePage(driver);
+    }
+
+    private SignInPage clickSignIn(){
+        signInLink.click();
+        return new SignInPage(driver);
     }
 
     public String getTitleAfterDeleting(){

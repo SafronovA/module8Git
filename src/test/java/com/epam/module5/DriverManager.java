@@ -9,25 +9,25 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 public class DriverManager {
-    private static WebDriver driver = null;
+    private static WebDriver driver;
     private static final String REMOTE_URL = "http://localhost:4444/wd/hub";
 
 
     public static WebDriver getDriver(){
         if (driver == null){
             setDriver();
-        }
-        return driver;
+        } return driver;
     }
 
     private static void setDriver(){
         System.setProperty("webdriver.chrome.driver", "C:\\SeleniumDrivers\\chromedriver.exe");
-        DesiredCapabilities capabilities = DesiredCapabilities.chrome();
-        capabilities.setPlatform(Platform.WINDOWS);
+        System.setProperty("webdriver.chrome.driver", "C:\\SeleniumDrivers\\geckodriver.exe");
+        DesiredCapabilities capabilitiesChrome = DesiredCapabilities.chrome();
+        DesiredCapabilities capabilitiesFirefox = DesiredCapabilities.firefox();
+        capabilitiesChrome.setPlatform(Platform.WINDOWS);
+        capabilitiesFirefox.setPlatform(Platform.WINDOWS);
         try {
-            driver = new RemoteWebDriver(new URL(REMOTE_URL), capabilities);
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
+            driver = new RemoteWebDriver(new URL(REMOTE_URL), capabilitiesChrome);
+        } catch (MalformedURLException e) {e.printStackTrace();}
     }
 }

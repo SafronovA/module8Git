@@ -7,7 +7,7 @@ public class CreateNewRepository extends BaseTest {
 
     @Test(groups = "CreateNewRepository", dependsOnGroups = "EditBio")
     public void createRepositoryTest() {
-//        mainPage.signIn();
+        mainPage.signIn();
         String actualTitleAfterCreation = mainPage.openYourProfile()
                                                   .clickRepositoryLink()
                                                   .clickNewLink()

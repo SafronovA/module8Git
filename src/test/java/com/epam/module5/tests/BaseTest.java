@@ -2,13 +2,8 @@ package com.epam.module5.tests;
 
 import com.epam.module5.DriverManager;
 import com.epam.module5.pages.MainPage;
-import com.epam.module5.pages.SignInPage;
-import com.epam.module5.user.User;
 import org.openqa.selenium.Dimension;
-import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterTest;
@@ -18,10 +13,8 @@ import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
 
-    protected WebDriver driver = null;
-    MainPage mainPage;
-    SignInPage signInPage;
-    User user;
+    private WebDriver driver;
+    protected MainPage mainPage;
 
     private final String TESTED_RESOURCE = "https://github.com";
     protected final String REPOSITORY_NAME = "Repository_For_Experiments";
@@ -38,32 +31,23 @@ public class BaseTest {
         mainPage = PageFactory.initElements(driver, MainPage.class);
     }
 
-    @AfterClass (enabled = false)
-    protected void backOnMainPage(){
+    @AfterClass(enabled = true)
+    protected void backOnMainPage() {
         driver.navigate().to(TESTED_RESOURCE);
     }
 
-    @AfterTest (enabled = false)
+    @AfterTest(enabled = true)
     protected void tearDown() {
         if (driver != null) {
             driver.quit();
         }
     }
 
-    private void startBrowser(){
+    private void startBrowser() {
         driver = DriverManager.getDriver();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().window().setSize(new Dimension(1650, 700));
     }
-
-    public void signIn(){
-        if (!mainPage.userIsAutorized()) {
-            signInPage = mainPage.clickSignIn();
-           mainPage = signInPage.authorized(user.getLogin(), user.getPassword());
-        }
-//        return new MainPage(driver);
-    }
-}
 
 //    private enum Driver{
 //        Firefox, Chrome, IE
@@ -125,3 +109,5 @@ public class BaseTest {
 //        driver.get(TESTED_RESOURCE);
 //        mainPage = PageFactory.initElements(driver, MainPage.class);
 //    }
+
+}

@@ -7,7 +7,7 @@ public class DeleteExistingRepository extends BaseTest {
 
     @Test(dependsOnGroups = "AddNewFileToRepository")
     public void deleteRepositoryTest() {
-//        mainPage.signIn();
+        mainPage.signIn();
         String actualTitleAfterDeleting = mainPage.openYourProfile()
                                                   .clickRepositoryLink()
                                                   .chooseRepository(REPOSITORY_NAME)

@@ -7,6 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.Iterator;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class ResultSearchPage {
     private WebDriver driver;
@@ -16,12 +17,15 @@ public class ResultSearchPage {
         this.driver = driver;
     }
 
-    @FindBy(xpath = "//*[@id=\"js-pjax-container\"]/div/div[2]/nav[1]/a[8]")
+    @FindBy(xpath = "//*[@id=\"js-pjax-container\"]//nav[1]/a[8]")
     private WebElement usersLink;
-    @FindBy(xpath = "//*[@id=\"user_search_results\"]/div/div/div[1]/div/a/em")
+    @FindBy(xpath = "//*[@id=\"user_search_results\"]//a/em")
     private List<WebElement> usersList;
 
     public ResultSearchPage clickUsersLink(){
+        try {
+            TimeUnit.SECONDS.sleep(3);
+        } catch (InterruptedException e) {e.printStackTrace();}
         usersLink.click();
         return this;
     }
@@ -34,7 +38,6 @@ public class ResultSearchPage {
             if ((currentElement.getAttribute("innerHTML").trim()).equals(checkingOne)) {
                 request = true;
             }
-        }
-        return request;
+        } return request;
     }
 }

@@ -7,7 +7,7 @@ public class AddReadmeFile extends BaseTest {
 
     @Test(groups = "AddReadmeFile", dependsOnGroups = "CreateNewRepository")
     public void addReadmeToRepositoryTest() {
-//        mainPage.signIn();
+        mainPage.signIn();
         Assert.assertTrue(mainPage.openYourProfile()
                                   .clickRepositoryLink()
                                   .chooseRepository(REPOSITORY_NAME)

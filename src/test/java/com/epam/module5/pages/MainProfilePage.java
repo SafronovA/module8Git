@@ -16,19 +16,19 @@ public class MainProfilePage {
         this.driver = driver;
     }
 
-    @FindBy(xpath = "//*[@id=\"js-pjax-container\"]/div/div[1]/div[4]/div/div")
+    @FindBy(xpath = "//*[@id=\"js-pjax-container\"]//div[1]/div[4]/div/div")
     private WebElement bioValue;
-    @FindBy(xpath = "//*[@id=\"js-pjax-container\"]/div/div[1]/div[4]/button")
+    @FindBy(xpath = "//*[@id=\"js-pjax-container\"]//div[1]/div[4]/button")
     private WebElement addOrEditBioButton;
     @FindBy(xpath = "//div[@class=\"js-length-limited-input-container\"]/textarea")
     private WebElement addOrEditBioInput;
-    @FindBy(xpath = "//div[@class=\"js-length-limited-input-container\"]/div/div/button[@type=\"submit\"]")
+    @FindBy(xpath = "//div[@class=\"js-length-limited-input-container\"]//button[@type=\"submit\"]")
     private WebElement addOrEditBioSaveButton;
-    @FindBy(xpath = "//*[@id=\"js-pjax-container\"]/div/div[2]/div[3]/nav/a[2]")
+    @FindBy(xpath = "//*[@id=\"js-pjax-container\"]//div[2]//nav/a[2]")
     private WebElement repositoryLink;
-    @FindBy(xpath = "//*[@id=\"js-pjax-container\"]/div/div[2]/div[4]/div[1]/form/div[2]/a")
+    @FindBy(xpath = "//*[@id=\"js-pjax-container\"]//div[2]/a")
     private WebElement newLink;
-    @FindBy(xpath = "//*[@id=\"user-repositories-list\"]/ul/li/div/h3/a")
+    @FindBy(xpath = "//*[@id=\"user-repositories-list\"]//h3/a")
     private List<WebElement> repositoriesList;
 
     public MainProfilePage addOrEditBio(String text){

@@ -16,27 +16,27 @@ public class RepositoryPage {
         this.driver = driver;
     }
 
-    @FindBy(xpath = "//*[@id=\"js-repo-pjax-container\"]/div[1]/div/h1/strong/a")
+    @FindBy(xpath = "//*[@id=\"js-repo-pjax-container\"]//strong/a")
     private WebElement title;
     @FindBy(id = "submit-file")
     private WebElement commitNewFileButton;
-    @FindBy(xpath = "//*[@id=\"js-repo-pjax-container\"]/div[2]/div[1]/div[4]/div[3]/form/button")
+    @FindBy(xpath = "//*[@id=\"js-repo-pjax-container\"]//div[4]/div[3]//button")
     private WebElement createNewFileButton;
-    @FindBy(xpath = "//*[@id=\"js-repo-pjax-container\"]/div[2]/div[1]/div/form[2]/div[1]/span[1]/input")
+    @FindBy(xpath = "//*[@id=\"js-repo-pjax-container\"]//span[1]/input")
     private WebElement inputFieldNewFileName;
-    @FindBy(xpath = "//*[@id=\"js-repo-pjax-container\"]/div[1]/nav/a[4]")
+    @FindBy(xpath = "//*[@id=\"js-repo-pjax-container\"]//a[4]")
     private WebElement settingsLink;
-    @FindBy(xpath = "//*[@id=\"options_bucket\"]/div[8]/ul/li[4]/details/summary")
+    @FindBy(xpath = "//*[@id=\"options_bucket\"]//li[4]//summary")
     private WebElement deleteThisRepositoryButton;
-    @FindBy(xpath = "//*[@id=\"options_bucket\"]/div[8]/ul/li[4]/details/details-dialog/div[3]/form/p/input")
+    @FindBy(xpath = "//*[@id=\"options_bucket\"]//li[4]//p/input")
     private WebElement inputFieldForDeleting;
-    @FindBy(xpath = "//*[@id=\"options_bucket\"]/div[8]/ul/li[4]/details/details-dialog/div[3]/form/button")
+    @FindBy(xpath = "//*[@id=\"options_bucket\"]//li[4]//form/button")
     private WebElement submitButtonForDeleting;
 
 
-    @FindBy(xpath = "//*[@id=\"js-repo-pjax-container\"]/div[2]/div[1]/div[1]/div[1]/p/a")
+    @FindBy(xpath = "//*[@id=\"js-repo-pjax-container\"]//p/a")
     private List<WebElement> weRecommendEveryRepositoryIncludeLine;
-    @FindBy(xpath = "//*[@id=\"js-repo-pjax-container\"]/div[2]/div[1]/div[6]/table/tbody/tr/td[2]/span/a")
+    @FindBy(xpath = "//*[@id=\"js-repo-pjax-container\"]//td[2]//a")
     private List<WebElement> availableFiles;
 
 
@@ -65,8 +65,7 @@ public class RepositoryPage {
             if ((currentElement.getAttribute("innerHTML").trim()).equals(filename)) {
                 request = true;
             }
-        }
-        return request;
+        } return request;
     }
 
     public MainPage deleteRepository(String repositoryName){
@@ -85,7 +84,6 @@ public class RepositoryPage {
                 currentElement.click();
                 break;
             }
-        }
-        return this;
+        } return this;
     }
 }
