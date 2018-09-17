@@ -20,7 +20,7 @@ public class RepositoryPage {
     private WebElement title;
     @FindBy(id = "submit-file")
     private WebElement commitNewFileButton;
-    @FindBy(xpath = "//*[@id=\"js-repo-pjax-container\"]//div[4]/div[3]//button")
+    @FindBy(xpath = "//*[@id=\"js-repo-pjax-container\"]//div[3]/div[3]//button")
     private WebElement createNewFileButton;
     @FindBy(xpath = "//*[@id=\"js-repo-pjax-container\"]//span[1]/input")
     private WebElement inputFieldNewFileName;
@@ -68,12 +68,12 @@ public class RepositoryPage {
         } return request;
     }
 
-    public MainPage deleteRepository(String repositoryName){
+    public HomePage deleteRepository(String repositoryName){
         settingsLink.click();
         deleteThisRepositoryButton.click();
         inputFieldForDeleting.sendKeys(repositoryName);
         submitButtonForDeleting.click();
-        return new MainPage(driver);
+        return new HomePage(driver);
     }
 
     private RepositoryPage clickReadmeLink() {

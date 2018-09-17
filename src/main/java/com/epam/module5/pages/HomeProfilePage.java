@@ -8,10 +8,10 @@ import org.openqa.selenium.support.PageFactory;
 import java.util.Iterator;
 import java.util.List;
 
-public class MainProfilePage {
+public class HomeProfilePage {
     private WebDriver driver;
 
-    public MainProfilePage(WebDriver driver){
+    public HomeProfilePage(WebDriver driver){
         PageFactory.initElements(driver,this);
         this.driver = driver;
     }
@@ -31,7 +31,7 @@ public class MainProfilePage {
     @FindBy(xpath = "//*[@id=\"user-repositories-list\"]//h3/a")
     private List<WebElement> repositoriesList;
 
-    public MainProfilePage addOrEditBio(String text){
+    public HomeProfilePage addOrEditBio(String text){
         addOrEditBioButton.click();
         addOrEditBioInput.click();
         addOrEditBioInput.clear();
@@ -40,7 +40,7 @@ public class MainProfilePage {
         return this;
     }
 
-    public MainProfilePage clickRepositoryLink(){
+    public HomeProfilePage clickRepositoryLink(){
         repositoryLink.click();
         return this;
     }

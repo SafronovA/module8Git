@@ -22,14 +22,14 @@ public class SignInPage {
     @FindBy(xpath = "//input[@type=\"submit\"]")
     private WebElement submitButton;
 
-    public MainPage authorized(String login, String password) {
+    public HomePage authorized(String login, String password) {
         driver.manage().timeouts().implicitlyWait(5,TimeUnit.SECONDS);
         loginInput.click();
         loginInput.sendKeys(login);
         passwordInput.click();
         passwordInput.sendKeys(password);
         submitButton.submit();
-        return new MainPage(driver);
+        return new HomePage(driver);
     }
 
 }

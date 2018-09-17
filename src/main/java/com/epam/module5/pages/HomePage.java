@@ -9,12 +9,12 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
-public class MainPage {
+public class HomePage {
 
     private WebDriver driver;
     private User user = new User();
 
-    public MainPage(WebDriver driver) {
+    public HomePage(WebDriver driver) {
         PageFactory.initElements(driver,this);
         this.driver = driver;
     }
@@ -32,7 +32,7 @@ public class MainPage {
     @FindBy(xpath = "//*[@id=\"user-links\"]//img")
     private List<WebElement> avatarForCheckingUserAutorization;
 
-    public MainPage signIn() {
+    public HomePage signIn() {
         if (!userIsAutorized()) {
             clickSignIn()
                     .authorized(user.getLogin(), user.getPassword());
@@ -46,10 +46,10 @@ public class MainPage {
         return new ResultSearchPage(driver);
     }
 
-    public MainProfilePage openYourProfile(){
+    public HomeProfilePage openYourProfile(){
         avatar.click();
         yourProfileLink.click();
-        return new MainProfilePage(driver);
+        return new HomeProfilePage(driver);
     }
 
     private SignInPage clickSignIn(){

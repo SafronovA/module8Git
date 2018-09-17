@@ -1,4 +1,4 @@
-package com.epam.module5;
+package com.epam.module5.driver;
 
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
