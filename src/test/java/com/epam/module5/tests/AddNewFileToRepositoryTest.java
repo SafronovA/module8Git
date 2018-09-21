@@ -9,7 +9,7 @@ public class AddNewFileToRepositoryTest extends BaseTest {
 
     @Test(groups = "AddNewFileToRepositoryTest", dependsOnGroups = "AddReadmeFileTest")
     public void addNewFileToRepositoryTest() {
-        addNewFileToRepositoryStep = new AddNewFileToRepositoryStep(driver);
+        addNewFileToRepositoryStep = new AddNewFileToRepositoryStep(driver).addNewFileToRepository();
         Assert.assertTrue(addNewFileToRepositoryStep.newFileIsAdded());
     }
 

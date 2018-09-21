@@ -20,8 +20,8 @@ public class DriverManager {
     }
 
     private static void setDriver(){
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\Aliaksei_Safronau\\SeleniumDrivers\\chromedriver.exe");
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\Aliaksei_Safronau\\SeleniumDrivers\\geckodriver.exe");
+        System.setProperty("webdriver.chrome.driver", "C:\\Users\\SeleniumDrivers\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "C:\\Users\\SeleniumDrivers\\geckodriver.exe");
         DesiredCapabilities capabilitiesChrome = DesiredCapabilities.chrome();
         DesiredCapabilities capabilitiesFirefox = DesiredCapabilities.firefox();
         capabilitiesChrome.setPlatform(Platform.WINDOWS);

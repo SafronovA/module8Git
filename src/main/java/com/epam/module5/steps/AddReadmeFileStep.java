@@ -7,20 +7,23 @@ import org.openqa.selenium.WebDriver;
 
 public class AddReadmeFileStep extends BaseStep{
     private HomePage homePage;
+    private RepositoryPage repositoryPage;
 
     public AddReadmeFileStep(WebDriver driver) {
         homePage = new HomePage(driver);
     }
 
-    public boolean readmeFileIsAdded(){
-        return addReadmeFile().checkFileAvailability(README_FILE_NAME);
+    public AddReadmeFileStep addReadmeFile(){
+        repositoryPage = homePage.signIn()
+                                 .openYourProfile()
+                                 .clickRepositoryLink()
+                                 .chooseRepository(REPOSITORY_NAME)
+                                 .includeReadmeFile();
+        return this;
     }
 
-    private RepositoryPage addReadmeFile(){
-        return homePage.signIn()
-                .openYourProfile()
-                .clickRepositoryLink()
-                .chooseRepository(REPOSITORY_NAME)
-                .includeReadmeFile();
+    public boolean readmeFileIsAdded(){
+        return repositoryPage.checkFileAvailability(README_FILE_NAME);
     }
+
 }

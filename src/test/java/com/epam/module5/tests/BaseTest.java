@@ -30,7 +30,7 @@ public class BaseTest {
         driver.navigate().to(TESTED_RESOURCE);
     }
 
-    @AfterTest(enabled = false)
+    @AfterTest(enabled = true)
     protected void tearDown() {
         if (driver != null) {
             driver.quit();
@@ -42,66 +42,5 @@ public class BaseTest {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().window().setSize(new Dimension(1650, 700));
     }
-
-//    private enum Driver{
-//        Firefox, Chrome, IE
-//    }
-//    private static Driver driverType;
-
-//    @BeforeClass(alwaysRun = true)
-//    protected void setUp() throws MalformedURLException {
-//        System.setProperty("webdriver.chrome.driver", "C:\\Users\\Aliaksei_Safronau\\SeleniumDrivers\\chromedriver.exe");
-////        driver = new ChromeDriver();
-//        DesiredCapabilities caps = DesiredCapabilities.chrome();
-//        caps.setPlatform(Platform.WINDOWS);
-//        driver = new RemoteWebDriver(new URL(REMOTE_URL), caps);
-//        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-//        driver.manage().window().setSize(new Dimension(1650, 700));
-////        driver.manage().window().fullscreen();
-//        driver.get(TESTED_RESOURCE);
-//        homePage = PageFactory.initElements(driver, HomePage.class);
-//    }
-
-
-//    public void setDriver(Driver driverType){BaseTestClass.driverType = driverType;}
-//
-//    public WebDriver getDriver() throws MalformedURLException {
-//        DesiredCapabilities caps = new DesiredCapabilities();
-//        if(driver == null){
-//            switch (driverType){
-//                case Chrome:
-//                    caps.setBrowserName("chrome");
-//                    break;
-//                case Firefox:
-//                    caps.setBrowserName("firefox");
-//                    break;
-//                case IE:
-//                    caps.setBrowserName("chrome");
-//                    break;
-//                default:
-//                    caps.setBrowserName("chrome");
-//                    break;
-//            }
-//            caps.setPlatform(Platform.WINDOWS);
-//            driver = new RemoteWebDriver(new URL(REMOTE_URL), caps);
-//            driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-//            driver.manage().window().setSize(new Dimension(1650, 700));
-//        }
-//        return driver;
-//    }
-
-//    @BeforeClass(alwaysRun = true)
-//    protected void setUp() throws MalformedURLException {
-//        System.setProperty("webdriver.chrome.driver", "C:\\Users\\Aliaksei_Safronau\\SeleniumDrivers\\chromedriver.exe");
-////        driver = new ChromeDriver();
-//        DesiredCapabilities caps = DesiredCapabilities.chrome();
-//        caps.setPlatform(Platform.WINDOWS);
-//        driver = new RemoteWebDriver(new URL(REMOTE_URL), caps);
-//        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-//        driver.manage().window().setSize(new Dimension(1650, 700));
-////        driver.manage().window().fullscreen();
-//        driver.get(TESTED_RESOURCE);
-//        homePage = PageFactory.initElements(driver, HomePage.class);
-//    }
 
 }

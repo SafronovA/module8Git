@@ -9,7 +9,8 @@ public class DeleteExistingRepositoryTest extends BaseTest {
 
     @Test(dependsOnGroups = "AddNewFileToRepositoryTest")
     public void deleteRepositoryTest() {
-        deleteExistingRepositoryStep = new DeleteExistingRepositoryStep(driver);
+        deleteExistingRepositoryStep = new DeleteExistingRepositoryStep(driver).deleteRepository();
+
         Assert.assertTrue(deleteExistingRepositoryStep.repositoryIsDeleted());
     }
 

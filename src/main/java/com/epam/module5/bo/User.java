@@ -1,4 +1,4 @@
-package com.epam.module5.user;
+package com.epam.module5.bo;
 
 public class User {
     private String login = "yidutax@hurify1.com";

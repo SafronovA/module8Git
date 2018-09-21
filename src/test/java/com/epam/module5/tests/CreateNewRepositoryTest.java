@@ -9,7 +9,7 @@ public class CreateNewRepositoryTest extends BaseTest {
 
     @Test(groups = "CreateNewRepository", dependsOnGroups = "EditBio")
     public void createRepositoryTest() {
-        createNewRepositoryStep = new CreateNewRepositoryStep(driver);
+        createNewRepositoryStep = new CreateNewRepositoryStep(driver).createRepository();
         Assert.assertTrue(createNewRepositoryStep.repositoryIsCreated());
     }
 }

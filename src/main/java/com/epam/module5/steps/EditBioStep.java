@@ -6,19 +6,22 @@ import org.openqa.selenium.WebDriver;
 
 public class EditBioStep extends BaseStep {
     private HomePage homePage;
+    private HomeProfilePage homeProfilePage;
 
     public EditBioStep(WebDriver driver) {
         homePage = new HomePage(driver);
     }
 
-    public boolean bioIsEdited(){
-        return editBio().getBioValue().equals(BIO);
+    public EditBioStep editBio(){
+       homeProfilePage= homePage.signIn()
+                                .openYourProfile()
+                                .addOrEditBio(BIO);
+        return this;
     }
 
-    private HomeProfilePage editBio(){
-       return homePage.signIn()
-                .openYourProfile()
-                .addOrEditBio(BIO);
+    public boolean bioIsEdited(){
+        return homeProfilePage.getBioValue()
+                              .equals(BIO);
     }
 
 }

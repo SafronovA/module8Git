@@ -1,6 +1,6 @@
 package com.epam.module5.pages;
 
-import com.epam.module5.user.User;
+import com.epam.module5.bo.User;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -23,17 +23,17 @@ public class HomePage {
     private WebElement signInLink;
     @FindBy(xpath = "//input[@type=\"text\" and @name=\"q\"]")
     private WebElement searchInput;
-    @FindBy(xpath = "//*[@id=\"user-links\"]/li[3]//img")
+    @FindBy(xpath = "//*[@id=\"bo-links\"]/li[3]//img")
     private WebElement avatar;
     @FindBy(linkText = "Your profile")
     private WebElement yourProfileLink;
     @FindBy(xpath = "//*[@id=\"js-flash-container\"]/div/div")
     private WebElement titleAfterDeleting;
-    @FindBy(xpath = "//*[@id=\"user-links\"]//img")
+    @FindBy(xpath = "//*[@id=\"bo-links\"]//img")
     private List<WebElement> avatarForCheckingUserAutorization;
 
     public HomePage signIn() {
-        if (!userIsAutorized()) {
+        if (!userIsAuthorized()) {
             clickSignIn()
                     .authorized(user.getLogin(), user.getPassword());
         } return this;
@@ -61,7 +61,7 @@ public class HomePage {
         return titleAfterDeleting.getText();
     }
 
-    public boolean userIsAutorized(){
+    public boolean userIsAuthorized(){
        return avatarForCheckingUserAutorization.size()==1;
     }
 

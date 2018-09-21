@@ -9,7 +9,7 @@ public class AddReadmeFileTest extends BaseTest {
 
     @Test(groups = "AddReadmeFileTest", dependsOnGroups = "CreateNewRepository")
     public void addReadmeFile() {
-        addReadmeFileStep = new AddReadmeFileStep(driver);
+        addReadmeFileStep = new AddReadmeFileStep(driver).addReadmeFile();
         Assert.assertTrue(addReadmeFileStep.readmeFileIsAdded());
     }
 

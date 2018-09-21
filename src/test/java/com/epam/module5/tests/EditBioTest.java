@@ -9,8 +9,7 @@ public class EditBioTest extends BaseTest {
 
     @Test(groups = "EditBio", dependsOnGroups = "FindUserTest")
     public void editBioTest(){
-        editBioStep = new EditBioStep(driver);
-
+        editBioStep = new EditBioStep(driver).editBio();
         Assert.assertTrue(editBioStep.bioIsEdited());
     }
 

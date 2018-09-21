@@ -28,7 +28,7 @@ public class HomeProfilePage {
     private WebElement repositoryLink;
     @FindBy(xpath = "//*[@id=\"js-pjax-container\"]//div[2]/a")
     private WebElement newLink;
-    @FindBy(xpath = "//*[@id=\"user-repositories-list\"]//h3/a")
+    @FindBy(xpath = "//*[@id=\"bo-repositories-list\"]//h3/a")
     private List<WebElement> repositoriesList;
 
     public HomeProfilePage addOrEditBio(String text){

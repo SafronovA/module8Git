@@ -6,20 +6,22 @@ import org.openqa.selenium.WebDriver;
 
 public class AddNewFileToRepositoryStep extends  BaseStep{
     private HomePage homePage;
+    private RepositoryPage repositoryPage;
 
     public AddNewFileToRepositoryStep(WebDriver driver) {
         homePage = new HomePage(driver);
     }
 
-    public boolean newFileIsAdded(){
-        return addNewFileToRepository().checkFileAvailability(TEST_FILE_NAME);
+    public AddNewFileToRepositoryStep addNewFileToRepository(){
+        repositoryPage = homePage.signIn()
+                                 .openYourProfile()
+                                 .clickRepositoryLink()
+                                 .chooseRepository(REPOSITORY_NAME)
+                                 .createNewFile(TEST_FILE_NAME);
+        return this;
     }
 
-    private RepositoryPage addNewFileToRepository(){
-        return homePage.signIn()
-                .openYourProfile()
-                .clickRepositoryLink()
-                .chooseRepository(REPOSITORY_NAME)
-                .createNewFile(TEST_FILE_NAME);
+    public boolean newFileIsAdded(){
+        return repositoryPage.checkFileAvailability(TEST_FILE_NAME);
     }
 }
